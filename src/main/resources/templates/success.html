@@ -1,0 +1,11 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:if="${user != null}">
+    succsee!
+    <div th:text="${user.name}"></div>
+</div>
+<div th:if="${user == null}">
+    user no found!
+</div>
+</body>
+</html>
