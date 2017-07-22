@@ -4,12 +4,11 @@ import com.darkwater.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Repository;
 
 /**
  * Created by Mr.Darkwater on 2017/7/21.
  */
-@Repository
+//@Repository
 @Mapper
 public interface UserDao {
     String TABLE_NAME = " user ";
