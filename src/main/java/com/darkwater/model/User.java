@@ -44,7 +44,7 @@ public class User {
         this.headUrl = headUrl;
     }
 
-    User(){
+    public User(){
 
     }
     public User(String name,

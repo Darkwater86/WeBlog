@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="apple-itunes-app" content="app-id=432274380">
@@ -8,37 +8,11 @@
     <meta name="description" content="一个真实的网络问答社区，帮助你寻找答案，分享知识。">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>牛客 - 与世界分享你的知识、经验和见解</title>
-    <link rel="stylesheet" href="../styles/pages/detail.css">
+    <link rel="stylesheet" href="../static/styles/pages/detail.css" th:href="@{/styles/pages/detail.css}">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="header-main">
-                <a href="https://nowcoder.com/" class="header-logo">牛客微博</a>
-                <div role="search" class="header-search">
-                    <form method="GET" action="" class="header-search-form">
-                        <input type="text" class="header-search-input" id="q" name="q" autocomplete="off" value="" placeholder="搜索你感兴趣的内容...">
-                        <button type="submit" class="header-search-button">
-                            <span class="header-search-font">搜索</span>
-                            <span class="header-search-icon"></span>
-                        </button>
-                    </form>
-                </div>
-                <div class="nav-wrap">
-                    <ul class="nav">
-                        <li class="nav-noti">
-                            <a class="nav-link icon-msg" href="javascript:;">
-                                <span class="nav-count">90</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="nav-link icon-user" href="https://nowcoder.com/explore">姓名</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <div th:replace="~{contains/header::header}"></div>
         <div class="nk-main">
             <div class="module-box publish-mod">
                 <div class="publish-hd">新鲜事来这发布</div>

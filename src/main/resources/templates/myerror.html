@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:if="${msg != null}">
+    <div th:text="${msg}">
+        My Error!
+    </div>
+</div>
+<div th:if="${msg == null}">
+    <div>
+        My Error!
+    </div>
+</div>
+
+</body>
+</html>

@@ -14,21 +14,35 @@
                 </button>
             </form>
         </div>
-            <div class="nav-wrap">
-                <ul th:if="${ user == null}" class="nav">
-                    <li>
-                        <a class="header-link" href="javascript:;">
-                            登录
-                        </a>
-                    </li>
-                    <li>
-                        <a class="header-link" href="javascript:;">
-                            注册
-                        </a>
-                    </li>
+        <div th:if="${ user == null}" class="nav-wrap">
+            <ul class="nav">
+                <li>
+                    <a class="header-link" href="/log">
+                        登录
+                    </a>
+                </li>
+                <li>
+                    <a class="header-link" href="/register">
+                        注册
+                    </a>
+                </li>
 
-                </ul>
-            </div>
+            </ul>
+        </div>
+        <div th:if="${ user != null}" class="nav-wrap">
+            <ul class="nav">
+                <li class="nav-noti">
+                    <a class="nav-link icon-msg" href="javascript:;">
+                        <span class="nav-count">90</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:text="${user.name}" class="nav-link icon-user" href="https://nowcoder.com/explore">姓名</a>
+                </li>
+
+            </ul>
+        </div>
     </div>
+</div>
 </body>
 </html>
