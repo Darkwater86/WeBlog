@@ -130,7 +130,5 @@ public class WeBlogController {
                 errObject.setErrno(111111111);
         }
         return JSON.toJSONString(errObject);
-
-
     }
 }
