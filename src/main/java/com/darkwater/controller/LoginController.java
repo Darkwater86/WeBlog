@@ -22,12 +22,12 @@ public class LoginController {
 
     private ErrObject errobj;
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     @ResponseBody
     public String login(@RequestParam(value = "name", required = false) String name,
-                        @RequestParam(value = "password", required = false) String password) {
+                        @RequestParam(value = "password", required = false) String password,
+                        HttpServletResponse response) {
         errobj = new ErrObject();
-
         if (!(userService.checkLoginName(name) && userService.checkLoginPassword(password))) {
             errobj.setErrno(-1);
             errobj.setErrmsg("用户名或密码不符合规范");
@@ -42,7 +42,9 @@ public class LoginController {
         }
         errobj.setErrno(0);
         errobj.setErrmsg(ret);
-
+        Cookie cookie = new Cookie("ticket", ret);
+        cookie.setPath("/");
+        response.addCookie(cookie);
         return JSON.toJSONString(errobj);
     }
 

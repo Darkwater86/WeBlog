@@ -79,6 +79,10 @@ public class News {
     private Date date;
     private String img;
 
+//    public News(String content){
+//        this.content = content;
+//    }
+
     public int getId() {
         return id;
     }

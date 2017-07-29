@@ -22,7 +22,6 @@ import java.util.Date;
  */
 @Component
 public class PassportIntercepter implements HandlerInterceptor {
-
     @Autowired
     TicketService ticketService;
 
@@ -49,6 +48,7 @@ public class PassportIntercepter implements HandlerInterceptor {
         if (null != ticket) {
             Ticket loginTicket = ticketService.getTicketByTicket(ticket);
             if (null == loginTicket || loginTicket.getEmpried().before(new Date()) || 0 != loginTicket.getStatus()) {
+            }else {
                 User user = userDao.selectById(loginTicket.getUserid());
                 hostHolder.setUser(user);
             }

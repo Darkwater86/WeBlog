@@ -26,7 +26,7 @@ public class WeBlogConfig extends WebMvcConfigurerAdapter{
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(errInterceptor).addPathPatterns("/**");
-        registry.addInterceptor(passportIntercepter).addPathPatterns("/wwwwwwww/*");
+        registry.addInterceptor(passportIntercepter).addPathPatterns("/*");
         super.addInterceptors(registry);
     }
 }

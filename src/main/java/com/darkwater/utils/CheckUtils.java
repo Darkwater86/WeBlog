@@ -24,8 +24,10 @@ public class CheckUtils {
 
 
     public static boolean checkImgType(MultipartFile file) {
-        if (checkImgType(file.getName()))
-        return true;
+        if (checkImgType(file.getName())) {
+            logger.error(file.getName());
+            return true;
+        }
         return false;
     }
 
@@ -55,7 +57,7 @@ public class CheckUtils {
         JSONObject json = new JSONObject();
         json.put("code", code);
         return json.toJSONString();
-        }
+    }
 
 
     public static String getJSONString(int code, String msg) {
