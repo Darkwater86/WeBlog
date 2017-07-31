@@ -88,9 +88,16 @@ public class NewsService {
         if(null == news){
             return -1;
         }
+        if(0 != news.getStatus()){
+
+        }
         if(news.getUid() != uid){
             return 1;
         }
         return 0;
+    }
+    public boolean deleteNewsById(int id){
+        return true;
+        //TODO
     }
 }

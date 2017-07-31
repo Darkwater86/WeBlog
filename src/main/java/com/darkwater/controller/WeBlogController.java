@@ -116,19 +116,25 @@ public class WeBlogController {
             case -1 :
                 errObject.setErrno(-1);
                 errObject.setErrmsg("未找到该文章");
-                break;
+                return JSON.toJSONString(errObject);
             case 0 :
-                errObject.setErrno(0);
-                errObject.setErrmsg("success");
                 break;
             case 1:
                 errObject.setErrno(1);
                 errObject.setErrmsg("无该操作权限");
-                break;
+                return JSON.toJSONString(errObject);
             default:
                 errObject.setErrmsg("fuck");
                 errObject.setErrno(111111111);
+                return JSON.toJSONString(errObject);
         }
+        if (newsService.deleteNewsById(wid)){
+            errObject.setErrno(0);
+            errObject.setErrmsg("success");
+            return JSON.toJSONString(errObject);
+        }
+        errObject.setErrno(-1);
+        errObject.setErrmsg("删除失败");
         return JSON.toJSONString(errObject);
     }
 }

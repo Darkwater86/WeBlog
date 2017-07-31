@@ -1,6 +1,34 @@
 package com.darkwater;
-//
-//public class Main {
+public class Main {
+    public static void main(String[] args) {
+        Obj a = new Obj();
+        Obj b = new Obj();
+        a.val = 1;
+        b.val = 2;
+        int a2 = 1;
+        int b2 = 2;
+        ex(a,b);
+        System.out.println(a.val+":"+b.val);
+        ex(a2,b2);
+        System.out.println(a2+":"+b2);
+    }
+    public static void ex(Obj a,Obj b){
+        Obj c = b;
+        b = a;
+        a = c;
+        System.out.println(a.val+":ex:"+b.val);
+    }
+    public static void ex(int a,int b){
+        int c = a;
+        a = b;
+        b = c;
+        System.out.println(a+":ex:"+b);
+    }
+
+}
+class Obj{
+    int val;
+}
 //    public static void main(String[] args){
 //        Scanner scanner = new Scanner(System.in);
 //        while(scanner.hasNext()){
