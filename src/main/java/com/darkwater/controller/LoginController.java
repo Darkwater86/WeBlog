@@ -1,13 +1,17 @@
 package com.darkwater.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.darkwater.aspect.LoginRequired;
 import com.darkwater.model.ErrObject;
 import com.darkwater.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +28,7 @@ public class LoginController {
 
     @GetMapping("/login")
     @ResponseBody
+    @LoginRequired
     public String login(@RequestParam(value = "name", required = false) String name,
                         @RequestParam(value = "password", required = false) String password,
                         HttpServletResponse response) {

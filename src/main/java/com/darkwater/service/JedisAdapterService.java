@@ -9,24 +9,65 @@ import redis.clients.jedis.JedisPool;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Mr.Darkwater on 2017/7/29.
  */
-
 @Component
 public class JedisAdapterService implements InitializingBean {
     private JedisPool jedisPool = null;
     private Jedis jedis = null;
-
     @Override
     public void afterPropertiesSet() throws Exception {
         jedisPool = new JedisPool("127.0.0.1", 6379);
     }
 
-
     private Jedis getJedis() {
         return jedisPool.getResource();
+    }
+
+    public void zadd(String key, double score, String member) {
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.zadd(key, score, member);
+        } catch (Exception e) {
+            System.out.print(e);
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+    public Set<String> zrange(String key, long start, long end) {
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            return jedis.zrange(key, start, end);
+        } catch (Exception e) {
+            System.out.print(e);
+            return null;
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+    public void zrem(String key) {
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.zrem(key);
+        } catch (Exception e) {
+            System.out.print(e);
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
     }
 
     public void set(String key, String value) {
@@ -118,7 +159,8 @@ public class JedisAdapterService implements InitializingBean {
             }
         }
     }
-//将list中的k/v打印出来
+
+    //将list中的k/v打印出来
     public List<String> brpop(int timeout, String key) {
         Jedis jedis = null;
         List<String> list = new ArrayList<>();
@@ -134,7 +176,8 @@ public class JedisAdapterService implements InitializingBean {
             }
         }
     }
-//Redis对象存储
+
+    //Redis对象存储
     public void setObject(String key, Object object) {
         set(key, JSON.toJSONString(object));
     }

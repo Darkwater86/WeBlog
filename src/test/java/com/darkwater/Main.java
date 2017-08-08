@@ -1,34 +1,79 @@
 package com.darkwater;
-public class Main {
-    public static void main(String[] args) {
-        Obj a = new Obj();
-        Obj b = new Obj();
-        a.val = 1;
-        b.val = 2;
-        int a2 = 1;
-        int b2 = 2;
-        ex(a,b);
-        System.out.println(a.val+":"+b.val);
-        ex(a2,b2);
-        System.out.println(a2+":"+b2);
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        while(scanner.hasNext()){
+            String s = scanner.nextLine();
+            String ss[]  = s.split(" ");
+            int length = ss.length;
+            if(length < 3){
+                System.out.println("0");
+            }
+            if(length == 3){
+                System.out.println();
+            }
+        }
     }
-    public static void ex(Obj a,Obj b){
-        Obj c = b;
-        b = a;
-        a = c;
-        System.out.println(a.val+":ex:"+b.val);
-    }
-    public static void ex(int a,int b){
-        int c = a;
-        a = b;
-        b = c;
-        System.out.println(a+":ex:"+b);
-    }
-
 }
-class Obj{
-    int val;
-}
+//public class Main{
+//
+//}
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner scanner = new Scanner(System.in);
+//        while(scanner.hasNext()){
+//            String sb = scanner.nextLine();
+//            for(int i = sb.length()-2;i>=0;i = i-2){
+//                if(isOdd(sb.substring(0,i))){
+//                    System.out.println(i);
+//                    break;
+//                }
+//            }
+//        }
+//    }
+//    public static boolean isOdd(String sb){
+//        int m = sb.length();
+//        String s1 = sb.substring(0,m/2);
+//        String s2 = sb.substring(m/2,m);
+//        if(s1.equals(s2)){
+//            return true;
+//        }
+//        return false;
+//    }
+//}
+//public class Main {
+//    public static void main(String[] args) {
+//        Obj a = new Obj();
+//        Obj b = new Obj();
+//        a.val = 1;
+//        b.val = 2;
+////        int a2 = 1;
+////        int b2 = 2;
+////        ex(a,b);
+////        System.out.println(a.val+":"+b.val);
+////        ex(a2,b2);
+////        System.out.println(a2+":"+b2);
+//        ex(a.val,b.val);
+//        System.out.println(a.val+":"+b.val);
+//    }
+//    public static void ex(Obj a,Obj b){
+//        Obj c = b;
+//        b = a;
+//        a = c;
+//        System.out.println(a.val+":ex:"+b.val);
+//    }
+//    public static void ex(int a,int b){
+//        int c = a;
+//        a = b;
+//        b = c;
+//        System.out.println(a+":ex:"+b);
+//    }
+//
+//}
+//class Obj{
+//    int val;
+//}
 //    public static void main(String[] args){
 //        Scanner scanner = new Scanner(System.in);
 //        while(scanner.hasNext()){
